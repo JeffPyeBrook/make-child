@@ -1,0 +1,155 @@
+/*
+ Theme Name:   Make Child
+ Theme URI:
+ Description:  Make Child Theme For Custom Post Types
+ Author:       Jeffrey Schutzman
+ Author URI:   http://example.com
+ Template:     make
+ Version:      1.0.0
+ Tags:
+ Text Domain:  make-child
+*/
+
+
+@import url("../make/style.css");
+
+
+/* portfolio page styles */
+
+.descriptions {
+    display: inline-block;
+    clear: both;
+}
+
+.descriptions .design-description .title {
+    width:100%;
+    background-color:gray;
+    text-align:center;
+    color: white;
+}
+
+.descriptions .variation-description .title {
+    width:100%;
+    background-color:gray;
+    text-align:center;
+    color: white;
+}
+
+
+.descriptions .design-description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 45%;
+    text-align: left;
+    border-width: 2px;
+    border-style: solid;
+    float: left;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+
+.descriptions .variation-description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 45%;
+    text-align: left;
+    border-width: 2px;
+    border-style: solid;
+    float: right;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.descriptions .narrative {
+    font-size: 1.2em;
+    color: black;
+}
+
+.descriptions .design-description .design-name-link, .descriptions .variation-description .variation-name-link {
+    color: white;
+    font-weight: bold;
+    text-decoration:underline;
+
+}
+
+
+.site-header-main {
+    padding: 1.4rem 0 2.2rem;
+}
+
+.site-header-main .container .site-branding .custom-logo {
+    display: inline-block;
+    float: left;
+}
+
+.site-header-main .container .site-branding .site-title {
+    clear: none;
+    display: inline-block;
+    vertical-align: top;
+    color: #e819b4;
+}
+
+.site-header-main .container .site-branding .site-title a {
+    color: #e819b4;
+    white-space: nowrap;
+}
+
+.site-header-main .container .site-branding span.site-description {
+    margin-top: -17px !important ;
+    padding-left: 110px !important ;
+    white-space: nowrap !important ;
+}
+
+.site-info {
+    display:none;
+}
+
+.site-title {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.site-header-main {
+    background-color: #efefef;
+}
+
+.header-bar {
+    background-color: #e819b4;
+}
+
+.site-title, .font-site-title {
+    font-family: "Chewy", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 54px !important;
+    font-size: 5.4rem !important ;
+}
+
+.site-description, .font-site-tagline {
+    font-size: 20px !important ;
+    font-size: 2rem !important ;
+}
+
+.custom-logo {
+    background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.png") !important;
+    width: 70px !important;
+}
+
+.custom-logo a {
+    padding-bottom: 100%;
+}
+
+.section-header {
+    margin-bottom: 14px;
+    margin-bottom: 1.4rem;
+}
+
+.site-main [class*="navigation"] {
+    overflow: hidden;
+    padding: 0 0 14px;
+    padding: 0 0 1.4rem;
+}
+
+
+.entry-header .entry-date {
+    float: none;
+}
