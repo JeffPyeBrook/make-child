@@ -1,11 +1,49 @@
 <?php
+
+function sgp_portfolio_image( $item_id, $width = false, $height = false, $title= '', $caption = '', $extra_attributes = '' ) {
+
+	if ( empty( $width ) && empty( $height ) ) {
+		$size = 'large';
+	} elseif ( empty( $height ) ) {
+		$size = 'height';
+	} else {
+		$size = array( $width, $height );
+	}
+
+	$thumbnail_id = get_post_thumbnail_id( $item_id );
+
+	$image_large_attributes = wp_get_attachment_image_src( $thumbnail_id, 'large' );
+	$image_large = $image_large_attributes[0];
+
+	$image_thumb_attributes = wp_get_attachment_image_src( $thumbnail_id, 'medium-single-product' );
+	$image_thumb = $image_thumb_attributes[0];
+
+	if ( empty( $width ) ) {
+		$width = $image_thumb_attributes[1];
+	}
+
+	if ( empty( $height ) ) {
+		$height = $image_thumb_attributes[2];
+	}
+
+	?>
+	<div class="portfolio-image">
+	<a href="<?php echo $image_large;?>" title="<?php echo get_the_title($item_id);?>" class="prettyLink" rel="prettyPhoto[<?php echo $item_id;?>]">
+		<img width="<?php echo $width;?>" height="<?php echo $height;?>" src="<?php echo $image_thumb;?>" alt="<?php echo get_the_title($item_id);?>">
+	</a>
+	</div>
+<?php
+
+}
+
+
 /**
  * @package Make
  */
 /* create a filter to force the product thumbnail to show next to the text */
 function portfolio_force_featured_image( $default, $option ) {
 	if ( 'layout-post-featured-images' == $option ) {
-		$default = 'post-header';
+		$default = 'none';
 	}
 
 	return $default;
@@ -30,6 +68,7 @@ global $post;
 <?php if ( have_posts() ) : ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
+
 		<?php
 		/**
 		 * Allow for changing the template partial.
@@ -43,6 +82,7 @@ global $post;
 		get_template_part( 'partials/content', $template_type );
 		?>
 		<?php get_template_part( 'partials/nav', 'post' ); ?>
+
 
 		<?php
 		$blingid              = get_the_ID();
@@ -59,6 +99,8 @@ global $post;
 		} else {
 			$normal_price = '';
 		}
+
+		sgp_portfolio_image( $blingid );
 		?>
 
 		<div class="portfolio-item-single hentry"  itemscope itemtype="http://schema.org/Product">
@@ -71,7 +113,7 @@ global $post;
 
 				<div class="portfolio_grid_display group">
 
-					<div style="clear:both;" class="group">
+					<div style="clear: both; text-align: center;" class="group">
 						<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 							<meta itemprop="price" content="<?php echo $normal_price;?>">
 						</div>
@@ -84,14 +126,14 @@ global $post;
 
 						if ( $article_id ) {
 							$sg_article = new SG_Article( $article_id );
-							$button_text = 'Customize Your ' . get_the_title( $prodid ) . ' Now';
+							$button_text = 'Customize Yours Now ';
 							$more_info_product_id = $prodid;
 						} else {
 							$button_text = 'Create your own custom item now!';
 							$more_info_product_id = bling_custom_design_request_product_id();
 						}
 
-						bling_more_info_button( $more_info_product_id, $button_text );
+						//bling_more_info_button( $more_info_product_id, $button_text );
 						?>
 
 						<div class="portfolio-text">
