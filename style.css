@@ -11,7 +11,7 @@
 */
 
 
-@import url("../make/style.css");
+/* @import url("../make/style.css"); */
 
 
 /* portfolio page styles */
@@ -230,4 +230,8 @@ article.article h1 {
     border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
     border-width: 1px 2px 2px 1px;
     background-color:white;
+}
+
+.product_grid_display {
+    clear: both;
 }
