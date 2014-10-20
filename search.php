@@ -1,28 +1,52 @@
 <?php
-/*
-** Copyright 2010-2014, Pye Brook Company, Inc.
-**
-** Licensed under the Pye Brook Company, Inc. License, Version 1.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.pyebrook.com/
-**
-** You may use this software for its intended purchase on web sites that you own.
-**  
-** This software is not free, may not be distributed, and should not be shared.  It is governed by the
-** license included in its original distribution (license.pdf and/or license.txt) and by the
-** license found at www.pyebrook.com. Unless you are explicitely granted a right you are explicitly 
-** forbidden from inferring that right.   
-**
-** This software is copyrighted and the property of Pye Brook Company, Inc.
-**
-** See the License for the specific language governing permissions and
-** limitations under the License.
-**
-** Contact Pye Brook Company, Inc. at info@pyebrook.com for more information.
-*/
+/**
+ * @package Make
+ */
 
-include 'archive-sg-design.php';
+get_header();
+global $post;
+$filters = new PortfolioFilterClass();
+?>
 
- 
+<?php ttfmake_maybe_show_sidebar( 'left' ); ?>
+
+<main id="site-main" class="site-main" role="main">
+<?php if ( have_posts() ) : ?>
+
+	<header class="section-header">
+		<?php get_template_part( 'partials/section', 'title' ); ?>
+	</header>
+
+	<?php
+	$filters->isotope_design_theme_links( true );
+	?>
+
+	<div class="product_grid_display group">
+	<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+		/**
+		 * Allow for changing the template partial.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param string     $type    The default template type to use.
+		 * @param WP_Post    $post    The post object for the current post.
+		 */
+//		$template_type =  apply_filters( 'make_template_content_search', 'search', $post );
+//		get_template_part( 'partials/content', $template_type );
+		$tile = new PortfolioTile();
+		echo $tile->lazy_portfolio_tile();
+		?>
+	<?php endwhile; ?>
+	</div> <!--end product_grid_display group -->
+
+	<?php get_template_part( 'partials/nav', 'paging' ); ?>
+
+<?php else : ?>
+	<?php get_template_part( 'partials/content', 'none' ); ?>
+<?php endif; ?>
+</main>
+
+<?php ttfmake_maybe_show_sidebar( 'right' ); ?>
+
+<?php get_footer(); ?>

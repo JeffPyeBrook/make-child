@@ -40,7 +40,6 @@ $filters = new PortfolioFilterClass();
 				//$template_type = apply_filters( 'make_template_content_archive', 'archive', $post );
 				//get_template_part( 'partials/content', $template_type );
 				$tile = new PortfolioTile();
-
 				echo $tile->lazy_portfolio_tile();
 				?>
 			<?php endwhile; ?>
