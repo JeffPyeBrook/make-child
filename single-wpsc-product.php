@@ -3,17 +3,23 @@
  * @package Make
  */
 
-/* create a filter to force the product thumbnail to show next to the text */
-function product_page_force_featured_image( $default, $option ) {
-	if ( 'layout-post-featured-images' == $option ) {
-		$default = 'thumbnail';
+add_filter( 'theme_mod_' . 'layout-post-featured-images' , 'theme_mod_product_page_force_featured_image', 10, 1 );
+
+function theme_mod_product_page_force_featured_image( $value ) {
+	if ( function_exists( 'on_gear_site' ) ) {
+		if ( on_gear_site() ) {
+			return 'thumbnail';
+		}
 	}
 
-	return $default;
+	if ( function_exists( 'on_transfer_site' ) ) {
+		if ( on_transfer_site() ) {
+			return 'none';
+		}
+	}
+
+	return $value;
 }
-
-add_filter( 'make_sanitize_choice', 'product_page_force_featured_image', 10 ,2 );
-
 
 get_header();
 global $post;

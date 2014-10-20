@@ -119,9 +119,9 @@
 }
 
 .site-title, .font-site-title {
-    font-family: "Chewy", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 54px !important;
-    font-size: 5.4rem !important ;
+    font-family: "Chewy", "Helvetica Neue", Helvetica, Arial, sans-serif !important ;
+    font-size: 44px !important;
+    font-size: 4.4rem !important ;
 }
 
 .site-description, .font-site-tagline {
@@ -130,7 +130,7 @@
 }
 
 .custom-logo {
-    background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.png") !important;
+    background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.jpg") !important;
     width: 70px !important;
 }
 
