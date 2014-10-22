@@ -24,6 +24,7 @@ $filters = new PortfolioFilterClass();
 
 		<?php
 		$filters->isotope_design_theme_links( true );
+		global $wp_query;
 		?>
 
 		<div class="product_grid_display group">
@@ -37,8 +38,6 @@ $filters = new PortfolioFilterClass();
 				 * @param string     $type    The default template type to use.
 				 * @param WP_Post    $post    The post object for the current post.
 				 */
-				//$template_type = apply_filters( 'make_template_content_archive', 'archive', $post );
-				//get_template_part( 'partials/content', $template_type );
 				$tile = new PortfolioTile();
 				echo $tile->lazy_portfolio_tile();
 				?>
