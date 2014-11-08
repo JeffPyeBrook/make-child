@@ -37,6 +37,110 @@ function sgp_portfolio_image( $item_id, $width = false, $height = false, $title=
 }
 
 
+function sgp_meta_tags( $post_id  ) {
+
+	$sg_design_id = sg_get_product_design_id( $post_id );
+	if ( $sg_design_id ) {
+		$sg_design = new SG_Design( $sg_design_id );
+	} else {
+		$sg_design = false;
+	}
+
+
+	$sg_article_id = sg_get_product_article_id( $post_id );
+	if ( $sg_design_id ) {
+		$sg_article = new SG_Article( $sg_article_id );
+	} else {
+		$sg_article = false;
+	}
+
+	$facebook_app_id = '';
+	$facebook_admins = '';
+
+	$giveaway_options = get_option( 'pbci_giveaway_options' );
+
+	if ( is_array( $giveaway_options ) ) {
+		extract( $giveaway_options ); // get's us $facebook_app_id
+	}
+
+	$thumbnail_id = get_post_thumbnail_id( $post_id );
+
+	if ( $thumbnail_id ) {
+		$image_attributes = wp_get_attachment_image_src( $thumbnail_id, array( 375, 375 ) );
+		$image_link       = $image_attributes[0];
+	} else {
+		$image_link = '';
+	}
+
+	error_log( __FUNCTION__ . ' image is ' . $image_link );
+
+	if ( empty( $width ) ) {
+		$image_width = $image_attributes[1];
+	}
+
+	if ( empty( $height ) ) {
+		$image_height = $image_attributes[2];
+	}
+
+	if ( strpos( $image_link, 'missing' ) !== false ) {
+		$image_link = '';
+	}
+
+	$title = get_the_title( $post_id );
+	$title = $title . '  #rhinestone #bling, We made this!';
+	$permalink = get_the_permalink( $post_id );
+
+	$post = get_post( $post_id );
+	$description = $post->post_content;
+
+	if ( empty( $description ) ) {
+		if ( $sg_design ) {
+			$description = $sg_design->get_design_text();
+		}
+	}
+
+	if ( ! empty( $description ) ) {
+		$description = strip_tags( $description );
+		$description = str_replace( "\n", " ", $description );
+		$description = str_replace( '&nbsp;', ' ', $description );
+		$description = sgc_compress_html( $description );
+		if ( strlen( $description ) > 199 ) {
+			$description = substr( $description, 0, 196 ) . '...';
+		}
+	}
+
+	if ( empty( $image_link ) ) {
+		$twitter_card_type = 'summary';
+	} else {
+		$twitter_card_type = 'photo';
+	}
+
+	?>
+
+
+	<meta property="twitter:card" content="<?php echo $twitter_card_type; ?>">
+	<?php if ( ! empty( $image_link )  ) { ?>
+		<meta property="twitter:image:width" content="<?php echo $image_width; ?>">
+		<meta property="twitter:image:height" content="<?php echo $image_height; ?>">
+	<?php } ?>
+
+	<meta property="twitter:site" content="@SparkleGear">
+	<meta property="twitter:creator" content="@SparkleGear">
+	<meta property="twitter:url" content="<?php echo $permalink;?>"/>
+	<meta property="twitter:title" content="<?php echo $title; ?>"/>
+	<meta property="twitter:description" content="<?php echo strip_tags( $description ); ?>"/>
+
+	<?php if ( ! empty( $image_link ) ) { ?>
+		<meta property="twitter:image" content="<?php echo $image_link; ?>"/>
+	<?php } ?>
+
+	<?php
+
+}
+
+
+
+
 /**
  * @package Make
  */
@@ -94,11 +198,22 @@ global $post;
 		$article_id = sg_get_product_article_id( $blingid );
 		$design_id  = sg_get_product_design_id( $blingid );
 
+		if ( $design_id ) {
+			$sg_design = new SG_Design( $design_id );
+			$design_text = $sg_design->get_design_text();
+		} else {
+			$sg_design = false;
+			$design_text = '';
+		}
+
+
 		if ( $prodid ) {
 			$normal_price = bling_product_normal_price($prodid);
 		} else {
 			$normal_price = '';
 		}
+
+		sgp_meta_tags( $blingid );
 
 		sgp_portfolio_image( $blingid );
 		?>
@@ -144,7 +259,7 @@ global $post;
 									<?php the_content(); ?>
 								</div>
 								<?php
-								$design_text = bling_get_design_info_text( $blingid );
+
 								if ( !empty( $design_text ) ) {
 									?>
 									<div class="design-description">
@@ -155,10 +270,12 @@ global $post;
 								}
 								?>
 
-								<div class="variation-description">
-									<div class="title">About the  <?php echo bling_variation_name_link( $blingid );?></div>
-									<?php bling_show_variation_text( $blingid ); ?>
-								</div>
+								<?php if ( $article_id ) { ?>
+									<div class="variation-description">
+										<div class="title">About the  <?php echo bling_variation_name_link( $blingid );?></div>
+										<?php bling_show_variation_text( $blingid ); ?>
+									</div>
+								<?php } ?>
 
 							</div>
 						</div>

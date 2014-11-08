@@ -10,6 +10,7 @@ $filters = new PortfolioFilterClass();
 
 <?php ttfmake_maybe_show_sidebar( 'left' ); ?>
 
+
 <main id="site-main" class="site-main" role="main">
 	<?php if ( have_posts() ) : ?>
 
@@ -38,8 +39,19 @@ $filters = new PortfolioFilterClass();
 				 * @param string     $type    The default template type to use.
 				 * @param WP_Post    $post    The post object for the current post.
 				 */
+
+				$start = microtime( true );
 				$tile = new PortfolioTile();
+				$end = microtime( true );
+				$elapsed = round( ($end - $start) * 1000, 0 );
+				error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' new PortfolioTile took ' . $elapsed );
+
+				$start = microtime( true );
 				echo $tile->lazy_portfolio_tile();
+				$end = microtime( true );
+				$elapsed = round( ($end - $start) * 1000, 0 );
+				error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' lazy_portfolio_tile ' . $elapsed );
+
 				?>
 			<?php endwhile; ?>
 		</div> <!--end product_grid_display group -->

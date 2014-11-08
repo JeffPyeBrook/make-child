@@ -21,8 +21,10 @@ global $post;
 
 	<?php //isotope_design_theme_links( );	?>
 	<?php
-		$gallery = new DesignGallery( 'design_gallery' );
-		$gallery->isotope_design_theme_links( true );
+		//$gallery = new DesignGallery( 'design_gallery' );
+		//$gallery->isotope_design_theme_links( true );
+		$filters = new PortfolioFilterClass();
+		$filters->isotope_design_theme_links( true );
 	?>
 
 	<div class="product_grid_display group">
@@ -38,7 +40,10 @@ global $post;
 		 */
 		//$template_type = apply_filters( 'make_template_content_archive', 'archive', $post );
 		//get_template_part( 'partials/content', $template_type );
-		echo $gallery->lazy_portfolio_tile( get_the_ID() );
+		//echo $gallery->lazy_portfolio_tile( get_the_ID() );
+		$tile = new PortfolioTile();
+		echo $tile->lazy_portfolio_tile();
+
 		?>
 	<?php endwhile; ?>
 </div>

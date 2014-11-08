@@ -235,3 +235,13 @@ article.article h1 {
 .product_grid_display {
     clear: both;
 }
+
+.entry-thumbnail.thumbnail img {
+    -ms-interpolation-mode: bicubic;
+    border: 0;
+    padding: 8px;
+    border: solid;
+    border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
+    border-width: 1px 2px 2px 1px;
+    background-color: white;
+}
