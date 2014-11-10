@@ -53,17 +53,14 @@ global $post;
 
 				div.tip-text {
 					display:inline-block;
+					width: 60%;
+					vertical-align: top;
 				}
 
 				span.tip-title {
 					font-weight: bold;
 					font-size: 1.1rem;
 					font-size: 1.1em;
-				}
-
-				span.tip-title:after {
-					content: '\A';
-					white-space: pre;
 				}
 
 				#tip img {
@@ -102,7 +99,7 @@ global $post;
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tshirt_bodywidth.png">
 							</div>
 							<div class="tip-text">
-								<span class="tip-title">Body Width</span>
+								<span class="tip-title">Body Width</span><br>
 								<span class="tip-text">The body width is measured approximately 2 inches below the
 									armhole across the garment from edge to edge. Double this
 									measurement and compare to the size charts below.</span>
@@ -113,7 +110,7 @@ global $post;
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tshirt_bodylength.png">
 							</div>
 							<div class="tip-text">
-								<span class="tip-title">Body Length</span>
+								<span class="tip-title">Body Length</span><br>
 								<span class="tip-text">The body length is measured in a straight line from the highest
 									point of the shoulder at the join of the collar to the bottom
 									opening.</span>

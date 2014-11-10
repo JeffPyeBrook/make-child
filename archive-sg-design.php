@@ -44,13 +44,13 @@ $filters = new PortfolioFilterClass();
 				$tile = new PortfolioTile();
 				$end = microtime( true );
 				$elapsed = round( ($end - $start) * 1000, 0 );
-				error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' new PortfolioTile took ' . $elapsed );
+				//error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' new PortfolioTile took ' . $elapsed );
 
 				$start = microtime( true );
 				echo $tile->lazy_portfolio_tile();
 				$end = microtime( true );
 				$elapsed = round( ($end - $start) * 1000, 0 );
-				error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' lazy_portfolio_tile ' . $elapsed );
+				//error_log( basename( __FILE__  ). ' @ ' . __LINE__  . ' lazy_portfolio_tile ' . $elapsed );
 
 				?>
 			<?php endwhile; ?>
