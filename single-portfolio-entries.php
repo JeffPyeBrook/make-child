@@ -41,7 +41,7 @@ function sgp_meta_tags( $post_id  ) {
 
 	$sg_design_id = sg_get_product_design_id( $post_id );
 	if ( $sg_design_id ) {
-		$sg_design = new SG_Design( $sg_design_id );
+		$sg_design = sg_get_design_by_id( $sg_design_id );
 	} else {
 		$sg_design = false;
 	}
@@ -199,7 +199,7 @@ global $post;
 		$design_id  = sg_get_product_design_id( $blingid );
 
 		if ( $design_id ) {
-			$sg_design = new SG_Design( $design_id );
+			$sg_design = sg_get_design_by_id( $design_id );
 			$design_text = $sg_design->get_design_text();
 		} else {
 			$sg_design = false;
