@@ -46,3 +46,4 @@ function comment_form_defaults_title( $defaults ) {
 	$defaults['title_reply'] = 'Have a question or comment?';
 	return $defaults;
 }
+
