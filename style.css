@@ -13,6 +13,15 @@
 
 /* @import url("../make/style.css"); */
 
+#site-header > div.header-bar > div > form,
+#site-header > div.header-bar > div > ul,
+#site-header > div.header-bar.right-content > div > div {
+    display: inline-block;
+}
+
+h1, h1 a, .font-header {
+    text-transform: none;
+}
 
 /* portfolio page styles */
 
@@ -118,16 +127,16 @@
     background-color: #e819b4;
 }
 
-.site-title, .font-site-title {
-    font-family: "Chewy", "Helvetica Neue", Helvetica, Arial, sans-serif !important ;
-    font-size: 44px !important;
-    font-size: 4.4rem !important ;
-}
+/*.site-title, .font-site-title {*/
+    /*font-family: "Chewy", "Helvetica Neue", Helvetica, Arial, sans-serif !important ;*/
+    /*font-size: 44px !important;*/
+    /*font-size: 4.4rem !important ;*/
+/*}*/
 
-.site-description, .font-site-tagline {
-    font-size: 20px !important ;
-    font-size: 2rem !important ;
-}
+/*.site-description, .font-site-tagline {*/
+    /*font-size: 20px !important ;*/
+    /*font-size: 2rem !important ;*/
+/*}*/
 
 .custom-logo {
     background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.jpg") !important;

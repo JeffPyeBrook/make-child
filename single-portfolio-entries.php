@@ -70,6 +70,10 @@ function sgp_meta_tags( $post_id  ) {
 		$image_link       = $image_attributes[0];
 	} else {
 		$image_link = '';
+		$image_attributes[0] = ''; // url
+		$image_attributes[1] = 0; // width
+		$image_attributes[2] = 0; // height
+		$image_attributes[3] = false; // no image
 	}
 
 	error_log( __FUNCTION__ . ' image is ' . $image_link );
