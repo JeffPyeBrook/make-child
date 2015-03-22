@@ -3,6 +3,7 @@
  * @package Make
  */
 
+
 add_filter( 'theme_mod_' . 'layout-post-featured-images' , 'theme_mod_product_page_force_featured_image', 10, 1 );
 
 function theme_mod_product_page_force_featured_image( $value ) {
