@@ -19,6 +19,15 @@
     display: inline-block;
 }
 
+.site-branding {
+    padding-top: 10px;
+}
+
+.site-header-main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 h1, h1 a, .font-header {
     text-transform: none;
 }
@@ -82,10 +91,6 @@ h1, h1 a, .font-header {
 
 }
 
-
-.site-header-main {
-    padding: 1.4rem 0 2.2rem;
-}
 
 .site-header-main .container .site-branding .custom-logo {
     display: inline-block;
