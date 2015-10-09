@@ -33,6 +33,7 @@ global $post;
 
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
+
 		/**
 		 * Allow for changing the template partial.
 		 *

@@ -4,49 +4,28 @@
  */
 
 get_header();
-global $post;
-$filters = new PortfolioFilterClass();
 ?>
 
 <?php ttfmake_maybe_show_sidebar( 'left' ); ?>
 
 <main id="site-main" class="site-main" role="main">
-<?php if ( have_posts() ) : ?>
+	<article id="search" class="" page type-page status-publish hentry>
+		<header class="section-header">
+			<h1>Sparkle Search</h1>
+		</header>
 
-	<header class="section-header">
-		<?php get_template_part( 'partials/section', 'title' ); ?>
-	</header>
-
-	<?php
-	$filters->isotope_design_theme_links( true );
-	?>
-
-	<div class="product_grid_display group">
-	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
-		/**
-		 * Allow for changing the template partial.
-		 *
-		 * @since 1.2.3.
-		 *
-		 * @param string     $type    The default template type to use.
-		 * @param WP_Post    $post    The post object for the current post.
-		 */
-//		$template_type =  apply_filters( 'make_template_content_search', 'search', $post );
-//		get_template_part( 'partials/content', $template_type );
-		$tile = new PortfolioTile();
-		echo $tile->lazy_portfolio_tile();
+		$uri = get_stylesheet_directory_uri() . '/search.html';
+		if ( ! empty ( $_REQUEST['s'] ) ) {
+			$uri .= '?s=' . esc_html( trim( $_REQUEST['s'] ) );
+		}
 		?>
-	<?php endwhile; ?>
-	</div> <!--end product_grid_display group -->
+		<iframe scrolling="no" height="1400px" width="100%;" src="<?php echo $uri;?>"></iframe>
 
-	<?php get_template_part( 'partials/nav', 'paging' ); ?>
-
-<?php else : ?>
-	<?php get_template_part( 'partials/content', 'none' ); ?>
-<?php endif; ?>
+	</article>
 </main>
 
 <?php ttfmake_maybe_show_sidebar( 'right' ); ?>
+
 
 <?php get_footer(); ?>

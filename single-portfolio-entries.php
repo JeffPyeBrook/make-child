@@ -76,8 +76,8 @@ function sgp_meta_tags( $post_id  ) {
 		$image_attributes[3] = false; // no image
 	}
 
-	error_log( __FUNCTION__ . ' image is ' . $image_link );
-
+//	error_log( __FUNCTION__ . ' image is ' . $image_link );
+//
 	if ( empty( $width ) ) {
 		$image_width = $image_attributes[1];
 	}
@@ -136,6 +136,11 @@ function sgp_meta_tags( $post_id  ) {
 
 	<?php if ( ! empty( $image_link ) ) { ?>
 		<meta property="twitter:image" content="<?php echo $image_link; ?>"/>
+	<?php } ?>
+
+
+	<?php if ( ! empty( $image_link ) ) { ?>
+		<meta name="thumbnail" content="<?php echo $image_link; ?>"/>
 	<?php } ?>
 
 	<?php
@@ -210,20 +215,20 @@ global $post;
 			$design_text = '';
 		}
 
-
 		if ( $prodid ) {
 			$normal_price = bling_product_normal_price($prodid);
 		} else {
 			$normal_price = '';
 		}
 
-		sgp_meta_tags( $blingid );
+		//sgp_meta_tags( $blingid );
 
 		sgp_portfolio_image( $blingid );
 		?>
 
 		<div class="portfolio-item-single hentry"  itemscope itemtype="http://schema.org/Product">
 
+			<h3 itemprop="name"><a href="<?php echo get_the_permalink($prodid ); ?>"><?php echo get_the_title( $prodid );?></a></h3>
 			<div class="portfolio_item_cell">
 
 				<div class="design_description">
@@ -269,6 +274,10 @@ global $post;
 									<div class="design-description">
 										<div class="title"><?php echo bling_get_design_name_link( $blingid, 'About The Design' );?></div>
 										<?php echo $design_text;?>
+
+										<div class="byline">
+											<?php echo $sg_design->get_byline();?>
+										</div>
 									</div>
 								<?php
 								}
