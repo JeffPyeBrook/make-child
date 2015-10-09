@@ -228,7 +228,7 @@ global $post;
 
 		<div class="portfolio-item-single hentry"  itemscope itemtype="http://schema.org/Product">
 
-			<h3 itemprop="name"><a href="<?php echo get_the_permalink($prodid ); ?>"><?php echo get_the_title( $prodid );?></a></h3>
+			<h3 itemprop="name"><?php echo get_the_title( $prodid );?></h3>
 			<div class="portfolio_item_cell">
 
 				<div class="design_description">
