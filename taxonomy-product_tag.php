@@ -3,16 +3,28 @@
  * @package Make
  */
 
-/* create a filter to stop featured image from displaying on this page */
-function taxonomy_product_Tag_no_featured_image( $default, $option ) {
-	if ( 'layout-archive-featured-images' == $option ) {
-		$default = 'none';
+///* create a filter to stop featured image from displaying on this page */
+//function taxonomy_product_Tag_no_featured_image( $default, $option ) {
+//	if ( 'layout-archive-featured-images' == $option ) {
+//		$default = 'none';
+//	}
+//
+//	return $default;
+//}
+//
+//add_filter( 'make_sanitize_choice', 'taxonomy_product_tag_no_featured_image', 10 ,2 );
+
+
+function thememod_taxonomy_product_force_featured_image( $value, $setting_id ) {
+	if ( 'layout-archive-featured-images' == $setting_id ) {
+		$value = 'none';
 	}
 
-	return $default;
+	return $value;
 }
 
-add_filter( 'make_sanitize_choice', 'taxonomy_product_tag_no_featured_image', 10 ,2 );
+
+add_filter( 'make_settings_thememod_current_value', 'thememod_taxonomy_product_force_featured_image', 10 ,2 );
 
 
 get_header();

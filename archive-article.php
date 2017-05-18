@@ -2,7 +2,6 @@
 /**
  * @package Make
  */
-
 get_header();
 global $post;
 ?>

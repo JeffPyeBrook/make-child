@@ -162,7 +162,18 @@ function portfolio_force_featured_image( $default, $option ) {
 	return $default;
 }
 
-add_filter( 'make_sanitize_choice', 'portfolio_force_featured_image', 10 ,2 );
+function thememod_portfolio_force_featured_image( $value, $setting_id ) {
+	if ( 'layout-post-featured-images' == $setting_id ) {
+		$value = 'none';
+	}
+
+	return $value;
+}
+
+
+add_filter( 'make_settings_thememod_current_value', 'thememod_portfolio_force_featured_image', 10 ,2 );
+
+//add_filter( 'make_sanitize_choice', 'portfolio_force_featured_image', 10 ,2 );
 
 
 add_filter( 'theme_mod_' . 'layout-post-post-author-location' , 'portfolio_layout_post_author_location' );
@@ -243,12 +254,12 @@ global $post;
 						</div>
 
 						<div itemprop="brand" itemscope itemtype="http://schema.org/Organization">
-							<meta itemprop="logo" content="http://www.sparkle-gear.com/wp-content/themes/bling/images/logo.png">
+							<meta itemprop="logo" content="https://sparklegear.com/wp-content/themes/bling/images/logo.png">
 							<meta itemprop="name" content="<?php echo stripslashes( get_bloginfo( 'name') ) ;?>">
 						</div>
 						<?php
 
-						if ( $article_id ) {
+						if ( $prodid ) {
 							$sg_article = new SG_Article( $article_id );
 							$button_text = 'Customize Yours Now ';
 							$more_info_product_id = $prodid;

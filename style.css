@@ -32,6 +32,14 @@ h1, h1 a, .font-header {
     text-transform: none;
 }
 
+a.custom-logo-link {
+    margin-bottom: 0;
+}
+
+.header-bar .menu {
+    margin: 11px 0 2px;
+    margin: 1.1rem 0 .2rem;
+}
 /* portfolio page styles */
 
 .descriptions {
@@ -107,9 +115,10 @@ h1, h1 a, .font-header {
 }
 
 .site-header-main .container .site-branding span.site-description {
-    margin-top: -10px !important;
+    margin-top: -30px !important;
     padding-left: 110px !important;
     white-space: nowrap !important;
+    font-weight: bold;
 }
 
 .site-info {
@@ -140,14 +149,14 @@ h1, h1 a, .font-header {
 /*font-size: 2rem !important ;*/
 /*}*/
 
-.custom-logo {
-    background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.jpg") !important;
-    width: 70px !important;
-}
+/*.custom-logo {*/
+    /*background-image: url("/wp-content/uploads/sparkle-gear-icon-114-114-gray-background.jpg") !important;*/
+    /*width: 70px !important;*/
+/*}*/
 
-.custom-logo a {
-    padding-bottom: 100%;
-}
+/*.custom-logo a {*/
+    /*padding-bottom: 100%;*/
+/*}*/
 
 .section-header {
     margin-bottom: 14px;
@@ -165,22 +174,22 @@ h1, h1 a, .font-header {
 
 }
 
-article.article {
-    clear: both;
-    margin-top: 15px;
-}
+/*article.article {*/
+    /*clear: both;*/
+    /*margin-top: 15px;*/
+/*}*/
 
-article.article h1 {
-    color: #e819b4;
-    padding: 20px;
-    background: #eeeeee;
-    border: 1px solid #bbbbbb;
+/*article.article h1 {*/
+    /*color: #e819b4;*/
+    /*padding: 20px;*/
+    /*background: #eeeeee;*/
+    /*border: 1px solid #bbbbbb;*/
 
-    border-radius: 17px;
-    -moz-border-radius: 17px;
-    -webkit-border-radius: 17px;
+    /*border-radius: 17px;*/
+    /*-moz-border-radius: 17px;*/
+    /*-webkit-border-radius: 17px;*/
 
-}
+/*}*/
 
 .entry-date {
     white-space: nowrap;
@@ -278,20 +287,116 @@ article.article h1 {
     margin-bottom: 0;
 }
 
-.single_product_display form.product_form input,
-#content .single_product_display form.product_form input {
-    padding: inherit;
-    margin: inherit;
-    line-height: inherit;
-    font-size: inherit;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid #000000;
-
-}
+/*.single_product_display form.product_form input,*/
+/*#content .single_product_display form.product_form input {*/
+    /*padding: inherit;*/
+    /*margin: inherit;*/
+    /*line-height: inherit;*/
+    /*font-size: inherit;*/
+    /*margin-left: 10px;*/
+    /*margin-right: 10px;*/
+    /*border: 1px solid #000000;*/
+/*}*/
 
 h3.builder-text-section-title,
 h3.builder-gallery-section-title {
     background-color: dimgrey;
     color: white;
 }
+
+.wp-caption {
+	border: 1px solid #B1A79B;
+	text-align: center;
+	padding-top: 10px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption .wp-caption-text {
+	font-size: 1em;
+	line-height: 1.7rem;
+	line-height: 17px;
+	color:white;
+	background-color: dodgerblue;
+	font-weight: bold;
+	padding: 8px;
+	margin: 0;
+}
+
+.colcompare {
+	width:auto;
+	border:none;
+}
+
+.colcompare td {
+	border:none;
+    border-top: none;
+    border-left: none;
+}
+
+
+.product_form input[type="submit"].wpsc_buy_button,
+.product_form div.wpsc_buy_button_container input.submit,
+#bling-font-add-to-cart,
+.add-to-cart-button {
+    background: #34d968;
+    background-image: -webkit-linear-gradient(top, #34d968, #08a800);
+    background-image: -moz-linear-gradient(top, #34d968, #08a800);
+    background-image: -ms-linear-gradient(top, #34d968, #08a800);
+    background-image: -o-linear-gradient(top, #34d968, #08a800);
+    background-image: linear-gradient(to bottom, #34d968, #08a800);
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: 0px solid #000000;
+}
+
+.product_form input[type="submit"].wpsc_buy_button:hover,
+.product_form div.wpsc_buy_button_container input.submit:hover,
+#bling-font-add-to-cart:hover,
+.add-to-cart-button:hover {
+    background: #7ed98c;
+    background-image: -webkit-linear-gradient(top, #7ed98c, #167511);
+    background-image: -moz-linear-gradient(top, #7ed98c, #167511);
+    background-image: -ms-linear-gradient(top, #7ed98c, #167511);
+    background-image: -o-linear-gradient(top, #7ed98c, #167511);
+    background-image: linear-gradient(to bottom, #7ed98c, #167511);
+    text-decoration: none;
+}
+
+.product_form input[type="submit"].wpsc_buy_button:disabled,
+.product_form div.wpsc_buy_button_container input.submit:disabled,
+#bling-font-add-to-cart:disabled,
+.add-to-cart-button:disabled {
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #dce5e5;
+    font-size: 20px;
+    background: #dce5e5;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    background-image: -webkit-linear-gradient(top, #dce5e5, #788181);
+    background-image: -moz-linear-gradient(top, #dce5e5, #788181);
+    background-image: -ms-linear-gradient(top, #dce5e5, #788181);
+    background-image: -o-linear-gradient(top, #dce5e5, #788181);
+    background-image: linear-gradient(to bottom, #dce5e5, #788181);
+    text-decoration: none;
+}
+
+.product_form > div.wpsc_buy_button_container input.submit
