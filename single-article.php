@@ -25,7 +25,7 @@ global $post;
 			$template_type = apply_filters( 'make_template_content_single', 'single', $post );
 
 			function use_sku_builder_template_content( $content ) {
-				remove_filter( 'the_content', 'xxx', 1 );
+				remove_filter( 'the_content', 'use_sku_builder_template_content', 1 );
 				$post_object = get_page_by_title( 'sku-builder-template' );
 				// If the page doesn't already exist, then create it
 				if ( null == $post_object ) {
